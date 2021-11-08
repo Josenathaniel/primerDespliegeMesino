@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- BOTONES PARA REGISTRAR UN ADMINISTRADOR O UN EMPLEADO -->
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegisterAdmin" data-bs-whatever="@mdo" id="btnRegistrarmodal">Registrar Administradores</button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRegisterEmp" data-bs-whatever="@mdo" id="btnRegistrarmodal">Registrar Empleados</button>
+    <a href="index.html"><button type="button" class="btn btn-warning">Volver</button></a>
+
+
+    <!-- Modal Registro Admin -->
+    <div class="modal fade" id="modalRegisterAdmin" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar nuevo Administrador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Se usa el metodo de guardarAdmin -->
+                    <form action="guardarAdmin.php" method="post" id="registro-form">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">id:</label>
+                            <input type="text" class="form-control" id="idregistro" name="registerId"
+                                placeholder="Ejemplo: 12345..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="passregistro" name="registerPassword"
+                                placeholder="Establece una contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="registerName" name="registerNombre"
+                                placeholder="Nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Foto:</label>
+                            <br><input type="text" class="form-control" id="fotoregistro" name="registerFoto"
+                                placeholder="Ingresa la direccion URL de tu foto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Rol:</label>
+                            Administrador <input type="radio" id="administrador" name="administradorRadio" value="Administrador" checked>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Puesto:</label>
+                            <input type="text" class="form-control" id="tipoempleadoregistro" name="registerEmpleado"
+                                placeholder="Puesto" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Salario:</label>
+                            <input type="text" class="form-control" id="salarioregistro" name="registerSalario"
+                                placeholder="Salario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Sexo:</label>
+                            <br>
+                            Hombre <input type="radio" id="hombreregistro" name="sexoAdmin"
+                                value="Masculino" checked>
+                            Mujer <input type="radio" id="mujerregistro" name="sexoAdmin" value="Femenino">
+                        </div>
+                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-secondary" id="btnguardar">Guardar Administrador</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registro Empleado -->
+    <div class="modal fade" id="modalRegisterEmp" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Nuevo Empleado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Se usa el metodo de guardarEmpleado -->
+                    <form action="guardarEmpleado.php" method="post" id="registro-form">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">id:</label>
+                            <input type="text" class="form-control" id="idregistro" name="registerIdEmp"
+                                placeholder="Ejemplo: 12345..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="passregistro" name="registerPasswordEmp"
+                                placeholder="Establece una contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="registerName" name="registerNombreEmp"
+                                placeholder="Nombre" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Foto:</label>
+                            <br><input type="text" class="form-control" id="fotoregistro" name="registerFotoEmp"
+                                placeholder="Ingresa la direccion URL de tu foto" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Rol:</label>
+                            Empleado <input type="radio" id="empleado" name="empleadoRadio" value="Empleado" checked>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Puesto:</label>
+                            <input type="text" class="form-control" id="tipoempleadoregistro" name="registerEmpleadoEmp"
+                                placeholder="Puesto" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Salario:</label>
+                            <input type="text" class="form-control" id="salarioregistro" name="registerSalarioEmp"
+                                placeholder="Salario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Sexo:</label>
+                            <br>
+                            Hombre <input type="radio"  id="hombreregistro" name="sexoEmp"
+                                value="Masculino" checked>
+                            Mujer <input type="radio" id="mujerregistro" name="sexoEmp" value="Femenino">
+                        </div>
+                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-secondary" id="btnguardar">Guardar Administrador</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- libreria modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
